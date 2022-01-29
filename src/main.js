@@ -7,7 +7,7 @@ const program = require('commander')
 program
     .command('view')
     .alias('vw')
-    .description(['hxc-cli view ./data'])
+    .description(['hxc view ./data'])
     .action(() => {
         if(process.argv.slice(3).length === 0) {
             console.log('pelase enter the path')
@@ -18,7 +18,7 @@ program
 
 program.command('punch')
     .alias('pc')
-    .description(['set: punch 0855 | get: punch'])
+    .description(['set: hxc punch 0855 | get: hxc punch'])
     .action(() => {
         require(path.resolve(__dirname, 'punch'))(...process.argv.slice(3))
     })
