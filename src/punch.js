@@ -5,7 +5,9 @@ const log = require('npmlog')
 
 module.exports = async (order) => {
     const today = new Date()
-    const date = today.getFullYear() + '-' + today.getMonth() + 1 + '-' + today.getDate()
+    const month = (today.getMonth() + 1) > 9 ? (today.getMonth() + 1) : '0' + (today.getMonth() + 1)
+    const day = today.getDate() > 9 ? today.getDate() : '0' + today.getDate()
+    const date = today.getFullYear() + '-' + month + '-' + day
 
     if (order === undefined) {
         const load = loading('loading...').start()
