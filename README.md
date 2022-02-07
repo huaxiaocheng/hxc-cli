@@ -14,8 +14,8 @@ Options:
   -h, --help      display help for command
 
 Commands:
-  view|vw         hxc-cli view ./data
-  punch|pc        set: punch 0855 | get: punch
+  view|vw         hxc view ./data
+  punch|pc        set: hxc punch 0855 | get: hxc punch
   help [command]  display help for command
 ```
 * **view|vw** : 查看目录下的文件，选择文件查看文件内容（目前支持.json和.txt）
