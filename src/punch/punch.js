@@ -19,8 +19,12 @@ module.exports = async (order) => {
         const manual = data.toString().split('\r\n')[1]
         log.info('punch time - automatic report: ' + (automatic && automatic.substring(0, 10) === date ? automatic : ''))
         log.info('punch time - manual report   : ' + (manual && manual.substring(0, 10) === date ? manual : ''))
-
+    } else if (order === 'saveDataToExcel') {
         // 定时/关机前执行脚本：写入统计excel
+        let data = await fs.readFileSync('d:/workspace/hxc-cli/data/punchTime.txt')
+        const automatic = data.toString().split('\r\n')[0].replace('T', ' ')
+        const manual = data.toString().split('\r\n')[1]
+
         const workbook = new excelJs.Workbook()
         try {
             await workbook.xlsx.readFile('d:/workspace/hxc-cli/data/punchTime.xlsx')
